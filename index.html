@@ -3,367 +3,1484 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ambassadeur IA — Oussama Akir</title>
-  <meta name="description" content="Ambassadeur IA — sensibilisation, diagnostics et orientations pour l’adoption responsable de l’intelligence artificielle par les entreprises. 17+ ans d’expérience en IT et gestion de projets innovants. Certificat Machine Learning Engineer (Mines Paris) en cours." />
-  <meta property="og:title" content="Ambassadeur IA — Oussama Akir" />
-  <meta property="og:description" content="Sensibiliser, orienter, accélérer l’adoption de l’IA dans les entreprises. 17+ ans d’expérience. Certificat Machine Learning Engineer (Mines Paris) en cours." />
+  <title>Oussama Akir — Ambassadeur IA France</title>
+  <meta name="description" content="Ambassadeur IA (réseau DGE) — Oussama Akir accompagne les entreprises françaises dans l'adoption responsable de l'intelligence artificielle. 17+ ans d'expérience IT." />
+  <meta property="og:title" content="Oussama Akir — Ambassadeur IA France" />
+  <meta property="og:description" content="Sensibiliser, orienter, accélérer l'adoption de l'IA dans les entreprises. Réseau officiel Ambassadeurs IA coordonné par la DGE." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%232563EB'/%3E%3Ctext y='.9em' font-size='56' x='14' fill='white' font-family='monospace' font-weight='700'%3EIA%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
-    :root { color-scheme: light; }
-    .card {
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-      box-shadow: 0 8px 24px -18px rgba(15, 23, 42, .45);
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #F7F9FF;
+      --surface:      #FFFFFF;
+      --surface-2:    #EEF2FF;
+      --border:       #DDE3F4;
+      --border-soft:  rgba(37,99,235,.12);
+      --primary:      #2563EB;
+      --primary-light: rgba(37,99,235,.08);
+      --primary-mid:  rgba(37,99,235,.18);
+      --cyan:         #0EA5E9;
+      --gold:         #D97706;
+      --gold-light:   rgba(217,119,6,.10);
+      --text:         #0F172A;
+      --text-muted:   #475569;
+      --text-dim:     #94A3B8;
+      --ff-display:   'Syne', sans-serif;
+      --ff-body:      'Crimson Pro', Georgia, serif;
+      --ff-mono:      'JetBrains Mono', monospace;
+      --radius:       14px;
+      --shadow-sm:    0 1px 3px rgba(15,23,42,.06), 0 1px 2px rgba(15,23,42,.04);
+      --shadow-md:    0 4px 16px rgba(15,23,42,.08), 0 2px 6px rgba(15,23,42,.05);
+      --shadow-lg:    0 12px 40px rgba(37,99,235,.12), 0 4px 12px rgba(15,23,42,.06);
     }
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(59, 130, 246, .35);
-      box-shadow: 0 18px 40px -24px rgba(37, 99, 235, .45);
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
-    .gradient { background: radial-gradient(70% 120% at 0% 0%, rgba(59,130,246,.16), transparent 55%),
-                             radial-gradient(80% 120% at 100% 0%, rgba(16,185,129,.14), transparent 55%),
-                             linear-gradient(180deg, rgba(255,255,255,.82), rgba(248,250,252,.65)); }
-    .glass {
-      background: rgba(255,255,255,.75);
-      border: 1px solid rgba(148,163,184,.25);
-      backdrop-filter: blur(12px);
+
+    ::selection { background: var(--primary); color: #fff; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+    h1,h2,h3,h4 { font-family: var(--ff-display); line-height: 1.22; font-weight: 700; color: var(--text); }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
-    .hero-orb {
+
+    /* ══════════════════════════
+       NAV
+    ══════════════════════════ */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      transition: background .3s, box-shadow .3s;
+    }
+    .nav.scrolled {
+      background: rgba(247,249,255,.96);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .625rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .nav-logo-mark {
+      width: 32px; height: 32px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-display);
+      font-weight: 800;
+      font-size: .75rem;
+      letter-spacing: .03em;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .nav-logo-text {
+      font-family: var(--ff-display);
+      font-weight: 700;
+      font-size: .9375rem;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--ff-display);
+      font-size: .8125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      transition: color .2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
       position: absolute;
-      border-radius: 999px;
-      filter: blur(42px);
-      opacity: .35;
+      bottom: -4px; left: 0; right: 0;
+      height: 1.5px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      font-family: var(--ff-display);
+      font-size: .8125rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: .5rem 1.25rem;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 7px;
+      text-decoration: none;
+      transition: opacity .2s, transform .2s;
+    }
+    .nav-cta:hover { opacity: .88; transform: translateY(-1px); }
+
+    /* ══════════════════════════
+       HERO
+    ══════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #FAFBFF;
+    }
+
+    /* Animated aurora blobs */
+    .hero-blobs {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
       pointer-events: none;
     }
-  </style>
-  <script>
-    // Tailwind config for fonts if you want to swap later
-    tailwind.config = {
-      theme: { extend: { fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] } } }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
     }
-  </script>
-</head>
-<body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-100">
-  <!-- Skip link -->
-  <a href="#contenu" class="sr-only focus:not-sr-only focus:absolute focus:m-4 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:shadow">Aller au contenu</a>
+    .blob-1 {
+      width: 680px; height: 680px;
+      background: radial-gradient(circle, rgba(37,99,235,.22) 0%, rgba(37,99,235,.05) 70%);
+      top: -200px; left: -180px;
+      animation: float1 12s infinite alternate ease-in-out;
+    }
+    .blob-2 {
+      width: 540px; height: 540px;
+      background: radial-gradient(circle, rgba(14,165,233,.18) 0%, rgba(14,165,233,.04) 70%);
+      top: 10%; right: -100px;
+      animation: float2 15s infinite alternate ease-in-out;
+    }
+    .blob-3 {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(139,92,246,.12) 0%, rgba(139,92,246,.03) 70%);
+      bottom: 5%; left: 35%;
+      animation: float3 18s infinite alternate ease-in-out;
+    }
+    .blob-4 {
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(217,119,6,.10) 0%, rgba(217,119,6,.02) 70%);
+      bottom: 20%; right: 15%;
+      animation: float4 14s infinite alternate ease-in-out;
+    }
 
-  <!-- Header -->
-  <header class="gradient sticky top-0 z-20 border-b border-slate-200/70 shadow-sm">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between glass rounded-2xl mt-2 mb-2">
-      <div class="flex items-center gap-2">
-        <span class="text-2xl">🤖</span>
-        <span class="font-semibold bg-gradient-to-r from-blue-700 to-emerald-600 bg-clip-text text-transparent">Ambassadeur IA — Oussama Akir</span>
-      </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#mission" class="hover:text-slate-700">Mission</a>
-        <a href="#offre" class="hover:text-slate-700">Offre</a>
-        <a href="#parcours" class="hover:text-slate-700">Parcours</a>
-        <a href="#formats" class="hover:text-slate-700">Formats</a>
-        <a href="#programme" class="hover:text-slate-700">Programme IA</a>
-        <a href="#contact" class="hover:text-slate-700">Contact</a>
-        <a href="mentions-legales.html" class="hover:text-slate-700">Mentions légales</a>
+    @keyframes float1 {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(60px, 80px) scale(1.12); }
+    }
+    @keyframes float2 {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-70px, 50px) scale(1.08); }
+    }
+    @keyframes float3 {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, -60px) scale(1.15); }
+    }
+    @keyframes float4 {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-50px, -40px) scale(1.1); }
+    }
+
+    /* Subtle dot grid overlay */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(37,99,235,.08) 1px, transparent 1px);
+      background-size: 32px 32px;
+      opacity: .6;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 7rem 2rem 5rem;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--ff-mono);
+      font-size: .6875rem;
+      color: var(--primary);
+      border: 1px solid var(--border-soft);
+      padding: .375rem .875rem;
+      border-radius: 99px;
+      margin-bottom: 1.75rem;
+      background: var(--primary-light);
+      letter-spacing: .07em;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: blink 2s ease infinite;
+      flex-shrink: 0;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .3; transform: scale(.7); }
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.8vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.175rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--ff-display);
+      font-size: .875rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .875rem 1.75rem;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all .25s;
+      box-shadow: 0 4px 14px rgba(37,99,235,.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,.45); opacity: .92; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--ff-display);
+      font-size: .875rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .875rem 1.75rem;
+      background: var(--surface);
+      color: var(--text);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all .25s;
+    }
+    .btn-ghost:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+    }
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      padding-right: 2.25rem;
+      margin-right: 2.25rem;
+      border-right: 1.5px solid var(--border);
+    }
+    .hero-stat:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+    .hero-stat-number {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: .25rem;
+    }
+    .hero-stat-label {
+      font-family: var(--ff-mono);
+      font-size: .625rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    /* Hero card */
+    .hero-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--cyan) 100%);
+    }
+    .hero-card-title {
+      font-family: var(--ff-display);
+      font-size: .9375rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    .hero-card-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .hero-card-item { display: flex; gap: .875rem; align-items: flex-start; }
+    .hero-card-check {
+      width: 20px; height: 20px;
+      background: var(--primary-light);
+      border: 1px solid var(--border-soft);
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .hero-card-check svg { width: 10px; height: 10px; color: var(--primary); }
+    .hero-card-item p { font-size: .9375rem; color: var(--text-muted); line-height: 1.5; }
+    .hero-card-item strong { color: var(--text); font-weight: 600; }
+    .hero-card-footer {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--ff-mono);
+      font-size: .625rem;
+      color: var(--text-dim);
+      letter-spacing: .09em;
+    }
+
+    /* ══════════════════════════
+       SHARED SECTION ELEMENTS
+    ══════════════════════════ */
+    .section-label {
+      font-family: var(--ff-mono);
+      font-size: .6875rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: .75rem;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+      font-weight: 700;
+      letter-spacing: -.01em;
+      line-height: 1.22;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      line-height: 1.65;
+    }
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--border) 20%, var(--border) 80%, transparent 100%);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ══════════════════════════
+       MISSION
+    ══════════════════════════ */
+    .mission { padding: 6rem 0; background: var(--surface); }
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+
+    .mission-cards { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .mission-card {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .mission-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: var(--primary);
+    }
+    .mission-card:hover { box-shadow: var(--shadow-md); border-color: var(--border-soft); }
+    .mission-card h3 {
+      font-family: var(--ff-display);
+      font-size: .875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--primary);
+      margin-bottom: .625rem;
+    }
+    .mission-card p { font-size: .9375rem; color: var(--text-muted); line-height: 1.6; }
+
+    .mission-blockquote {
+      font-size: 1.0625rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.7;
+      border-left: 3px solid var(--primary);
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mission-body {
+      font-size: .9375rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .principles {
+      background: var(--surface-2);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      position: relative;
+    }
+    .principles::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .principles h3 {
+      font-family: var(--ff-display);
+      font-size: .8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .principles ul { list-style: none; display: flex; flex-direction: column; gap: .625rem; }
+    .principles li {
+      display: flex;
+      gap: .625rem;
+      align-items: flex-start;
+      font-size: .875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .principles li::before {
+      content: '·';
+      color: var(--primary);
+      font-family: var(--ff-mono);
+      font-size: 1.2rem;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════
+       SERVICES
+    ══════════════════════════ */
+    .services { padding: 6rem 0; background: var(--bg); }
+    .services-header { margin-bottom: 3rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .service-card {
+      background: var(--surface);
+      padding: 2rem;
+      position: relative;
+      transition: background .2s;
+    }
+    .service-card:hover { background: #FAFBFF; }
+    .service-num {
+      font-family: var(--ff-mono);
+      font-size: .6875rem;
+      color: var(--primary);
+      letter-spacing: .1em;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: .75rem;
+      color: var(--text);
+    }
+    .service-card p { font-size: .9rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ══════════════════════════
+       PARCOURS
+    ══════════════════════════ */
+    .parcours { padding: 6rem 0; background: var(--surface); }
+    .parcours-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1px 1fr;
+      gap: 0 1.75rem;
+      position: relative;
+    }
+    .timeline-line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .timeline-dot {
+      width: 10px; height: 10px;
+      background: var(--primary);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: .35rem;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-connector {
+      width: 1.5px;
+      flex: 1;
+      background: linear-gradient(to bottom, var(--primary), var(--border));
+      margin: 4px 0;
+    }
+    .timeline-item:last-child .timeline-connector { display: none; }
+    .timeline-body { padding-bottom: 2.5rem; }
+    .timeline-item:last-child .timeline-body { padding-bottom: 0; }
+    .timeline-body h3 {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+      color: var(--text);
+    }
+    .timeline-body p { font-size: .9375rem; color: var(--text-muted); line-height: 1.6; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
+    .tag {
+      font-family: var(--ff-mono);
+      font-size: .6875rem;
+      color: var(--primary);
+      background: var(--primary-light);
+      border: 1px solid var(--border-soft);
+      border-radius: 99px;
+      padding: .3rem .75rem;
+      letter-spacing: .05em;
+    }
+
+    /* ══════════════════════════
+       FORMATS
+    ══════════════════════════ */
+    .formats { padding: 6rem 0; background: var(--bg); }
+    .formats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .format-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow .25s, transform .25s, border-color .25s;
+    }
+    .format-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--cyan) 100%);
+    }
+    .format-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: var(--border-soft);
+    }
+    .format-name {
+      font-family: var(--ff-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: .375rem;
+    }
+    .format-duration {
+      font-family: var(--ff-mono);
+      font-size: .6875rem;
+      color: var(--primary);
+      letter-spacing: .08em;
+      margin-bottom: 1rem;
+    }
+    .format-desc { font-size: .9rem; color: var(--text-muted); line-height: 1.6; }
+    .formats-note {
+      text-align: center;
+      font-family: var(--ff-mono);
+      font-size: .6875rem;
+      color: var(--text-dim);
+      letter-spacing: .08em;
+      margin-top: 1.75rem;
+    }
+
+    /* ══════════════════════════
+       PROGRAMME
+    ══════════════════════════ */
+    .programme { padding: 6rem 0; background: var(--surface); }
+    .programme-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .programme-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .pillar-card {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary) 0%, transparent 100%);
+    }
+    .pillar-card:hover { box-shadow: var(--shadow-md); border-color: var(--border-soft); }
+    .pillar-num {
+      position: absolute;
+      top: 1rem; right: 1.25rem;
+      font-family: var(--ff-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      opacity: .07;
+      line-height: 1;
+      user-select: none;
+    }
+    .pillar-card h3 {
+      font-family: var(--ff-display);
+      font-size: .9375rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--primary);
+      margin-bottom: .875rem;
+      line-height: 1.3;
+    }
+    .pillar-card p { font-size: .9rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ══════════════════════════
+       MÉTHODE "OSEZ L'IA"
+    ══════════════════════════ */
+    .methode { padding: 6rem 0; background: var(--surface-2); }
+    .methode-header { margin-bottom: 3rem; }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      background: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .step-card {
+      background: var(--surface);
+      padding: 2rem 1.75rem;
+      position: relative;
+    }
+    .step-card:hover { background: #F8FAFF; }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 8px;
+      font-family: var(--ff-display);
+      font-size: .875rem;
+      font-weight: 800;
+      margin-bottom: 1.25rem;
+      flex-shrink: 0;
+    }
+    .step-card h3 {
+      font-family: var(--ff-display);
+      font-size: .9375rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--text);
+      margin-bottom: .75rem;
+    }
+    .step-card p { font-size: .875rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ══════════════════════════
+       CONTACT
+    ══════════════════════════ */
+    .contact { padding: 6rem 0; background: var(--surface); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .contact-link:hover { border-color: var(--primary); box-shadow: var(--shadow-md); transform: translateX(4px); }
+    .contact-link-icon {
+      width: 40px; height: 40px;
+      background: var(--primary-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--primary);
+    }
+    .contact-link-text strong {
+      display: block;
+      font-family: var(--ff-display);
+      font-size: .875rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .contact-link-text span {
+      font-size: .875rem;
+      color: var(--text-muted);
+    }
+
+    /* Form */
+    .contact-form-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.25rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--cyan) 100%);
+    }
+    .form-title {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.25rem; }
+    .form-label {
+      font-family: var(--ff-display);
+      font-size: .75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-muted);
+    }
+    .form-input, .form-textarea {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: .75rem 1rem;
+      font-family: var(--ff-body);
+      font-size: .9375rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      width: 100%;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+    .form-textarea { min-height: 130px; resize: vertical; }
+    .form-note {
+      font-size: .8125rem;
+      color: var(--text-dim);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+    .form-note a { color: var(--primary); text-decoration: none; }
+    .form-note a:hover { text-decoration: underline; }
+
+    /* ══════════════════════════
+       FOOTER
+    ══════════════════════════ */
+    .footer {
+      background: var(--text);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-text {
+      font-size: .875rem;
+      color: rgba(255,255,255,.45);
+      line-height: 1.6;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: .8125rem;
+      color: rgba(255,255,255,.45);
+      text-decoration: none;
+      transition: color .2s;
+      font-family: var(--ff-display);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      font-size: .75rem;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,.85); }
+
+    /* ══════════════════════════
+       RESPONSIVE
+    ══════════════════════════ */
+    @media (max-width: 1024px) {
+      .hero-content { grid-template-columns: 1fr; max-width: 680px; }
+      .hero-card { display: none; }
+      .mission-grid { grid-template-columns: 1fr; }
+      .parcours-grid { grid-template-columns: 1fr; }
+      .programme-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .formats-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .formats-grid { grid-template-columns: 1fr; }
+      .programme-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; gap: 1rem; }
+      .hero-stat { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 0; }
+      .hero-stat:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Accueil">
+        <div class="nav-logo-mark">IA</div>
+        <span class="nav-logo-text">Oussama Akir</span>
+      </a>
+      <nav aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#offre">Offre</a></li>
+          <li><a href="#parcours">Parcours</a></li>
+          <li><a href="#programme">Programme</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
-      <a href="#contact" class="md:inline-block hidden rounded-xl bg-gradient-to-r from-blue-700 to-blue-500 text-white px-4 py-2 text-sm font-medium shadow hover:shadow-lg">Prendre contact</a>
+      <a href="#contact" class="nav-cta">Prendre contact</a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="hero-orb w-56 h-56 bg-blue-300 -top-10 -left-16"></div>
-    <div class="hero-orb w-64 h-64 bg-emerald-300 top-12 -right-20"></div>
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-      <div class="grid lg:grid-cols-2 gap-10 items-center">
-        <div>
-          <p class="inline-flex items-center gap-2 rounded-full bg-white/80 border border-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">⚡ Agence IA orientée impact métier</p>
-          <h1 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-            Accélérer l’adoption <span class="bg-gradient-to-r from-blue-700 to-emerald-600 bg-clip-text text-transparent">utile et responsable</span> de l’IA dans les entreprises
+  <main>
+
+    <!-- ══════════════════════════
+         HERO
+    ══════════════════════════ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-blobs" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+      </div>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            AMBASSADEUR IA · RÉSEAU DGE · FRANCE
+          </div>
+          <h1 class="hero-title">
+            Accélérer l'adoption<br>
+            <em>utile et responsable</em><br>
+            de l'IA en entreprise
           </h1>
-          <p class="mt-5 text-lg text-slate-700 max-w-2xl">
-            Ambassadeur IA (réseau coordonné par la DGE) — j’accompagne dirigeants, équipes et territoires à comprendre, tester et intégrer l’IA de manière concrète et sécurisée.
+          <p class="hero-subtitle">
+            Oussama Akir accompagne dirigeants, équipes et territoires à comprendre, tester et intégrer l'intelligence artificielle de manière concrète et sécurisée.
           </p>
-          <ul class="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
-            <li class="flex items-center gap-2 bg-white/80 rounded-xl p-3 border border-slate-200 card">
-              <span class="text-xl">🧭</span>
-              <div>
-                <div class="font-semibold">Diagnostic & orientation</div>
-                <div class="text-slate-600">Cadrage des besoins, feuille de route, dispositifs publics</div>
-              </div>
-            </li>
-            <li class="flex items-center gap-2 bg-white/80 rounded-xl p-3 border border-slate-200 card">
-              <span class="text-xl">🎓</span>
-              <div>
-                <div class="font-semibold">Sensibilisation & formation</div>
-                <div class="text-slate-600">Conférences, ateliers, démonstrations</div>
-              </div>
-            </li>
-            <li class="flex items-center gap-2 bg-white/80 rounded-xl p-3 border border-slate-200 card">
-              <span class="text-xl">🔒</span>
-              <div>
-                <div class="font-semibold">Pragmatisme & sécurité</div>
-                <div class="text-slate-600">Priorité aux usages utiles, protection des données</div>
-              </div>
-            </li>
-            <li class="flex items-center gap-2 bg-white/80 rounded-xl p-3 border border-slate-200 card">
-              <span class="text-xl">🤝</span>
-              <div>
-                <div class="font-semibold">Intérêt général</div>
-                <div class="text-slate-600">Neutralité, partage au sein du réseau Ambassadeurs IA</div>
-              </div>
-            </li>
-          </ul>
-          <div class="mt-8 flex gap-3">
-            <a href="#contact" class="rounded-xl bg-gradient-to-r from-blue-700 to-blue-500 text-white px-5 py-3 text-sm font-medium shadow hover:shadow-lg">Discuter de votre besoin</a>
-            <a href="#offre" class="rounded-xl bg-white/90 text-slate-900 px-5 py-3 text-sm font-medium border border-slate-200 shadow-sm hover:shadow">Voir mon offre</a>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Discuter de votre besoin
+            </a>
+            <a href="#offre" class="btn-ghost">
+              Découvrir l'offre
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+          <div class="hero-stats" role="list">
+            <div class="hero-stat" role="listitem">
+              <span class="hero-stat-number">17+</span>
+              <span class="hero-stat-label">Ans d'expérience IT</span>
+            </div>
+            <div class="hero-stat" role="listitem">
+              <span class="hero-stat-number">6</span>
+              <span class="hero-stat-label">Formats d'intervention</span>
+            </div>
+            <div class="hero-stat" role="listitem">
+              <span class="hero-stat-number" style="font-size:1.375rem;">Mines Paris</span>
+              <span class="hero-stat-label">ML Engineer · en cours</span>
+            </div>
           </div>
         </div>
-        <div class="lg:justify-self-end">
-          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 max-w-md mx-auto">
-            <h2 class="font-semibold text-lg">Ce que vous obtenez</h2>
-            <ul class="mt-4 space-y-3 text-sm text-slate-700">
-              <li class="flex gap-2"><span>✅</span><span>Un <strong>diagnostic IA</strong> de 60–90 min pour situer vos priorités</span></li>
-              <li class="flex gap-2"><span>✅</span><span>Un <strong>plan d’actions</strong> simple (30–60 jours)</span></li>
-              <li class="flex gap-2"><span>✅</span><span>Des <strong>ressources</strong> et <strong>contacts</strong> vers les dispositifs pertinents</span></li>
-              <li class="flex gap-2"><span>✅</span><span>Des <strong>sessions d’acculturation</strong> adaptées à votre métier</span></li>
+
+        <div class="hero-card" aria-label="Ce que vous obtenez">
+          <p class="hero-card-title">Ce que vous obtenez</p>
+          <ul class="hero-card-list">
+            <li class="hero-card-item">
+              <div class="hero-card-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p>Un <strong>diagnostic IA de 60–90 min</strong> pour situer vos priorités</p>
+            </li>
+            <li class="hero-card-item">
+              <div class="hero-card-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p>Un <strong>plan d'actions opérationnel</strong> (30–60 jours)</p>
+            </li>
+            <li class="hero-card-item">
+              <div class="hero-card-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p>Des <strong>ressources & contacts</strong> vers les dispositifs d'appui publics</p>
+            </li>
+            <li class="hero-card-item">
+              <div class="hero-card-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p>Des <strong>sessions d'acculturation</strong> adaptées à votre métier</p>
+            </li>
+          </ul>
+          <p class="hero-card-footer">RÉSEAU OFFICIEL — COORDONNÉ PAR LA DGE</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════
+         MISSION
+    ══════════════════════════ -->
+    <section class="mission" id="mission" aria-labelledby="mission-titre">
+      <div class="container">
+        <p class="section-label reveal">Mission</p>
+        <h2 class="section-title reveal" id="mission-titre">Diffuser la culture de l'IA<br>au cœur des entreprises</h2>
+        <div class="mission-grid">
+          <div>
+            <blockquote class="mission-blockquote reveal">
+              Contribuer à l'appropriation et à l'adoption des usages utiles de l'IA, et orienter vers l'offre globale et les dispositifs publics adaptés — en toute neutralité.
+            </blockquote>
+            <p class="mission-body reveal">
+              France Num, DREETS, réseaux consulaires — je m'appuie sur l'ensemble de l'écosystème public-privé pour apporter la réponse la plus pertinente à chaque entreprise, quel que soit son secteur ou son niveau de maturité IA.
+            </p>
+            <div class="mission-cards">
+              <div class="mission-card reveal">
+                <h3>Rôle</h3>
+                <p>Informer, sensibiliser, coordonner et orienter — en neutralité — sans se substituer à la décision de l'entreprise.</p>
+              </div>
+              <div class="mission-card reveal">
+                <h3>Public</h3>
+                <p>TPE, PME, ETI — secteurs variés (artisanat, industrie, services) en proximité régionale ou à distance.</p>
+              </div>
+            </div>
+          </div>
+          <div class="principles reveal">
+            <h3>Principes d'action</h3>
+            <ul>
+              <li>Intérêt général & démarche collective</li>
+              <li>Orientation vers l'offre la plus pertinente</li>
+              <li>Protection des données & sobriété numérique</li>
+              <li>Transparence sur les limites et les risques</li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <main id="contenu" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <!-- Mission -->
-    <section id="mission" class="py-12 sm:py-16">
-      <div class="grid lg:grid-cols-3 gap-8 items-start">
-        <div class="lg:col-span-2">
-          <h2 class="text-2xl font-bold">Mission dans le réseau Ambassadeurs IA</h2>
-          <p class="mt-4 text-slate-700 leading-relaxed">
-            Contribuer à diffuser la culture de l’IA auprès des entreprises, faciliter l’<em>appropriation</em> et l’<em>adoption</em> des usages utiles, et orienter vers l’<em>offre globale</em> et les dispositifs publics adaptés (France Num, DREETS, réseaux consulaires, etc.).
-          </p>
-          <div class="mt-6 grid sm:grid-cols-2 gap-4">
-            <div class="p-5 bg-white border border-slate-200 rounded-2xl card">
-              <div class="font-semibold">Rôle</div>
-              <p class="text-sm text-slate-700 mt-2">Informer, sensibiliser, coordonner et <strong>orienter</strong> — en neutralité — sans se substituer à la décision de l’entreprise.</p>
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════
+         SERVICES
+    ══════════════════════════ -->
+    <section class="services" id="offre" aria-labelledby="offre-titre">
+      <div class="container">
+        <div class="services-header">
+          <p class="section-label reveal">Offre d'accompagnement</p>
+          <h2 class="section-title reveal" id="offre-titre">Des formats courts, à impact rapide</h2>
+          <p class="section-subtitle reveal">Activables en autonomie par vos équipes, avec des résultats concrets dès les premières semaines.</p>
+        </div>
+        <div class="services-grid reveal">
+          <div class="service-card">
+            <p class="service-num">01</p>
+            <h3>Diagnostic IA express</h3>
+            <p>Entretien structuré (60–90 min) pour évaluer besoins, données, risques et ROI potentiel. Restitution en 48h : priorités et premiers cas d'usage.</p>
+          </div>
+          <div class="service-card">
+            <p class="service-num">02</p>
+            <h3>Atelier de sensibilisation</h3>
+            <p>Session 2–3h pour dirigeants & équipes : cas d'usage métier, démonstrations, limites et bonnes pratiques (gouvernance, RGPD, sécurité).</p>
+          </div>
+          <div class="service-card">
+            <p class="service-num">03</p>
+            <h3>Feuille de route 30–60 j</h3>
+            <p>Plan d'actions concret : pilotes rapides, critères de succès, jalons, ressources utiles et dispositifs d'appui publics.</p>
+          </div>
+          <div class="service-card">
+            <p class="service-num">04</p>
+            <h3>Café IA / Q&A</h3>
+            <p>Format 60 min, questions-réponses pour démystifier l'IA avec vos équipes. Idéal en amont d'un atelier plus approfondi.</p>
+          </div>
+          <div class="service-card">
+            <p class="service-num">05</p>
+            <h3>Masterclass sectorielle</h3>
+            <p>Focus par secteur (industrie, retail, santé, éducation, énergie…). Exemples concrets, pièges à éviter, outillage recommandé.</p>
+          </div>
+          <div class="service-card">
+            <p class="service-num">06</p>
+            <h3>Orientation & mise en relation</h3>
+            <p>Cartographie des aides et contacts (France Num, consulaires, DREETS, partenaires) selon vos besoins spécifiques.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════
+         PARCOURS
+    ══════════════════════════ -->
+    <section class="parcours" id="parcours" aria-labelledby="parcours-titre">
+      <div class="container">
+        <p class="section-label reveal">Parcours & crédibilité</p>
+        <h2 class="section-title reveal" id="parcours-titre">Une expertise ancrée dans le réel</h2>
+        <div class="parcours-grid">
+          <div class="timeline">
+            <div class="timeline-item reveal">
+              <div class="timeline-line" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-connector"></div>
+              </div>
+              <div class="timeline-body">
+                <h3>17+ ans d'expérience en IT & gestion de projets innovants</h3>
+                <p>Direction technique front-end, architectures modulaires, DevOps, CI/CD, micro-frontends, accompagnement de produits digitaux à fort enjeu.</p>
+              </div>
             </div>
-            <div class="p-5 bg-white border border-slate-200 rounded-2xl card">
-              <div class="font-semibold">Public</div>
-              <p class="text-sm text-slate-700 mt-2">TPE/PME/ETI, secteurs variés (artisanat, industrie, services), en proximité régionale ou à distance.</p>
+            <div class="timeline-item reveal">
+              <div class="timeline-line" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-connector"></div>
+              </div>
+              <div class="timeline-body">
+                <h3>Certificat « Machine Learning Engineer » — Mines Paris (en cours)</h3>
+                <p>Approches MLOps, apprentissage supervisé/non-supervisé, IA générative, déploiement responsable. Mise à jour continue des compétences.</p>
+              </div>
+            </div>
+            <div class="timeline-item reveal">
+              <div class="timeline-line" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-connector"></div>
+              </div>
+              <div class="timeline-body">
+                <h3>Interventions : sensibilisation, ateliers & accompagnement</h3>
+                <p>Expérience pédagogique en enseignement supérieur, formations professionnelles et animation de communautés techniques.</p>
+              </div>
+            </div>
+          </div>
+          <div class="reveal">
+            <p style="font-family:var(--ff-display);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);margin-bottom:1rem;">Thématiques de prédilection</p>
+            <div class="tags">
+              <span class="tag">IA générative</span>
+              <span class="tag">Copilotes IA</span>
+              <span class="tag">Data readiness</span>
+              <span class="tag">Gouvernance</span>
+              <span class="tag">MLOps</span>
+              <span class="tag">RGPD</span>
+              <span class="tag">Sécurité IA</span>
+              <span class="tag">TPE/PME</span>
+              <span class="tag">Cas d'usage métier</span>
+              <span class="tag">Jumeaux numériques</span>
             </div>
           </div>
         </div>
-        <aside class="bg-slate-900 text-white rounded-2xl p-6">
-          <h3 class="font-semibold">Principes d’action</h3>
-          <ul class="mt-4 space-y-3 text-sm text-white/90">
-            <li>• Intérêt général & démarche collective</li>
-            <li>• Orientation vers l’offre globale la plus pertinente</li>
-            <li>• Protection des données & sobriété</li>
-            <li>• Transparence sur limites et risques</li>
-          </ul>
-        </aside>
       </div>
     </section>
 
-    <!-- Offre -->
-    <section id="offre" class="py-12 sm:py-16 border-t border-slate-200/70">
-      <h2 class="text-2xl font-bold">Mon offre d’accompagnement</h2>
-      <p class="mt-3 text-slate-700">Des formats courts, à impact rapide, activables en autonomie par vos équipes.</p>
-      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="p-6 bg-white border border-slate-200 rounded-2xl card">
-          <div class="text-sm font-semibold text-slate-600">01</div>
-          <h3 class="mt-2 font-semibold">Diagnostic IA express</h3>
-          <p class="mt-2 text-sm text-slate-700">Entretien structuré (60–90 min) pour évaluer besoins, données, risques et ROI potentiel. Restitution en 48h : priorités et premiers cas d’usage.</p>
-        </div>
-        <div class="p-6 bg-white border border-slate-200 rounded-2xl card">
-          <div class="text-sm font-semibold text-slate-600">02</div>
-          <h3 class="mt-2 font-semibold">Atelier de sensibilisation</h3>
-          <p class="mt-2 text-sm text-slate-700">Session 2–3h pour dirigeants & équipes : cas d’usage par métier, démonstrations, limites et bonnes pratiques (gouvernance, RGPD, sécurité).</p>
-        </div>
-        <div class="p-6 bg-white border border-slate-200 rounded-2xl card">
-          <div class="text-sm font-semibold text-slate-600">03</div>
-          <h3 class="mt-2 font-semibold">Feuille de route 30–60 jours</h3>
-          <p class="mt-2 text-sm text-slate-700">Plan d’actions très concret : pilotes rapides, critères de succès, jalons, ressources utiles et dispositifs d’appui.</p>
-        </div>
-        <div class="p-6 bg-white border border-slate-200 rounded-2xl card">
-          <div class="text-sm font-semibold text-slate-600">04</div>
-          <h3 class="mt-2 font-semibold">Café IA / Q&A</h3>
-          <p class="mt-2 text-sm text-slate-700">Format 60 min, questions-réponses pour démystifier l’IA avec vos équipes. Idéal en amont d’un atelier.</p>
-        </div>
-        <div class="p-6 bg-white border border-slate-200 rounded-2xl card">
-          <div class="text-sm font-semibold text-slate-600">05</div>
-          <h3 class="mt-2 font-semibold">Masterclass sectorielle</h3>
-          <p class="mt-2 text-sm text-slate-700">Focus par secteur (industrie, retail, santé, éducation, énergie…). Exemples concrets, pièges à éviter, outillage.</p>
-        </div>
-        <div class="p-6 bg-white border border-slate-200 rounded-2xl card">
-          <div class="text-sm font-semibold text-slate-600">06</div>
-          <h3 class="mt-2 font-semibold">Orientation & mise en relation</h3>
-          <p class="mt-2 text-sm text-slate-700">Cartographie des aides et contacts (France Num, réseaux consulaires, DREETS, partenaires), selon vos besoins.</p>
-        </div>
-      </div>
-    </section>
+    <div class="divider"></div>
 
-    <!-- Parcours -->
-    <section id="parcours" class="py-12 sm:py-16 border-t border-slate-200/70">
-      <h2 class="text-2xl font-bold">Parcours & crédibilité</h2>
-      <div class="mt-6 grid lg:grid-cols-3 gap-6 items-start">
-        <div class="lg:col-span-2">
-          <ul class="space-y-4">
-            <li class="p-5 bg-white border border-slate-200 rounded-2xl card">
-              <div class="font-semibold">17+ ans d’expérience en IT & gestion de projets innovants</div>
-              <p class="text-sm text-slate-700 mt-1">Direction technique front‑end, architectures modulaires, DevOps, CI/CD, micro‑frontends, accompagnement de produits digitaux à fort enjeu.</p>
-            </li>
-            <li class="p-5 bg-white border border-slate-200 rounded-2xl card">
-              <div class="font-semibold">Certificat « Machine Learning Engineer » — Mines Paris (en cours)</div>
-              <p class="text-sm text-slate-700 mt-1">Approches MLOps, apprentissage supervisé/non‑supervisé, IA générative, déploiement responsable. Mise à jour continue des compétences.</p>
-            </li>
-            <li class="p-5 bg-white border border-slate-200 rounded-2xl card">
-              <div class="font-semibold">Interventions : sensibilisation, ateliers, accompagnement</div>
-              <p class="text-sm text-slate-700 mt-1">Expérience pédagogique (enseignement supérieur, formations pro) et animation de communautés techniques.</p>
-            </li>
-          </ul>
-        </div>
-        <aside class="bg-white border border-slate-200 rounded-2xl p-6">
-          <h3 class="font-semibold">Thématiques de prédilection</h3>
-          <ul class="mt-3 space-y-2 text-sm text-slate-700">
-            <li>• IA générative & copilotes</li>
-            <li>• Data readiness, qualité & gouvernance</li>
-            <li>• MLOps & sécurité (RGPD, risques)</li>
-            <li>• Cas d’usage métiers (TPE/PME/ETI)</li>
-            <li>• Énergie & jumeaux numériques (R&D)</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Formats -->
-    <section id="formats" class="py-12 sm:py-16 border-t border-slate-200/70">
-      <h2 class="text-2xl font-bold">Formats d’intervention</h2>
-      <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-5 bg-white border border-slate-200 rounded-2xl card">
-          <div class="font-semibold">Talk 45–60 min</div>
-          <p class="text-sm text-slate-700 mt-1">Découvrir les usages utiles de l’IA, limites et retours d’expérience. Adapté aux comités de direction et séminaires.</p>
-        </div>
-        <div class="p-5 bg-white border border-slate-200 rounded-2xl card">
-          <div class="font-semibold">Atelier 2–3 h</div>
-          <p class="text-sm text-slate-700 mt-1">Mise en mains guidée d’outils IA, études de cas, checklists d’adoption et de gouvernance.</p>
-        </div>
-        <div class="p-5 bg-white border border-slate-200 rounded-2xl card">
-          <div class="font-semibold">Parcours 4 semaines</div>
-          <p class="text-sm text-slate-700 mt-1">De l’idée au pilote : cadrage, POC sécurisé, critères de succès et passage à l’échelle.</p>
-        </div>
-        <div class="p-5 bg-white border border-slate-200 rounded-2xl card">
-          <div class="font-semibold">Office hours</div>
-          <p class="text-sm text-slate-700 mt-1">Créneau récurrent pour répondre aux questions et lever les freins des équipes.</p>
-        </div>
-      </div>
-      <p class="mt-6 text-sm text-slate-600">Interventions en présentiel ou à distance. Facturation au forfait ou au temps passé selon le format.</p>
-    </section>
-
-
-
-    <!-- Programme Ambassadeur IA -->
-    <section id="programme" class="py-12 sm:py-16 border-t border-slate-200/70">
-      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-        <div>
-          <h2 class="text-2xl font-bold">Alignement avec les objectifs nationaux « Ambassadeur IA »</h2>
-          <p class="mt-3 text-slate-700 max-w-3xl">Mon accompagnement est structuré pour répondre aux priorités portées en France : acculturer les TPE/PME, faire émerger des cas d’usage concrets, orienter vers les bons acteurs publics/privés, et favoriser une adoption responsable de l’IA.</p>
-        </div>
-        <a href="#contact" class="rounded-xl bg-white text-slate-900 px-5 py-3 text-sm font-medium border border-slate-300 shadow-sm hover:shadow">Échanger sur votre contexte</a>
-      </div>
-
-      <div class="mt-8 grid md:grid-cols-2 xl:grid-cols-4 gap-5">
-        <article class="p-5 bg-white border border-slate-200 rounded-2xl card">
-          <p class="text-xs font-semibold text-blue-700">Pilier 1</p>
-          <h3 class="mt-2 font-semibold">Acculturation & pédagogie</h3>
-          <p class="mt-2 text-sm text-slate-700">Sessions de sensibilisation adaptées aux dirigeants et équipes métiers : vocabulaire IA, opportunités, limites, niveau de maturité et conditions de réussite.</p>
-        </article>
-        <article class="p-5 bg-white border border-slate-200 rounded-2xl card">
-          <p class="text-xs font-semibold text-blue-700">Pilier 2</p>
-          <h3 class="mt-2 font-semibold">Passage à l’action rapide</h3>
-          <p class="mt-2 text-sm text-slate-700">Identification de cas d’usage prioritaires, quick wins 30–60 jours, critères de valeur, risques et feuille de route pragmatique.</p>
-        </article>
-        <article class="p-5 bg-white border border-slate-200 rounded-2xl card">
-          <p class="text-xs font-semibold text-blue-700">Pilier 3</p>
-          <h3 class="mt-2 font-semibold">Confiance, éthique & conformité</h3>
-          <p class="mt-2 text-sm text-slate-700">Approche responsable : qualité des données, RGPD, sécurité, transparence sur les limites des modèles et supervision humaine.</p>
-        </article>
-        <article class="p-5 bg-white border border-slate-200 rounded-2xl card">
-          <p class="text-xs font-semibold text-blue-700">Pilier 4</p>
-          <h3 class="mt-2 font-semibold">Orientation dans l’écosystème</h3>
-          <p class="mt-2 text-sm text-slate-700">Mise en relation avec les dispositifs d’appui pertinents (France Num et acteurs territoriaux) selon le niveau de maturité de l’entreprise.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Parcours Osez l'IA -->
-    <section id="osez-ia" class="py-12 sm:py-16 border-t border-slate-200/70">
-      <h2 class="text-2xl font-bold">Parcours inspiré « Osez l’IA » : de la découverte au déploiement</h2>
-      <p class="mt-3 text-slate-700">Un chemin progressif, concret et mesurable pour aider les entreprises à passer de l’idée à un usage utile.</p>
-      <ol class="mt-8 grid lg:grid-cols-2 gap-5">
-        <li class="bg-white border border-slate-200 rounded-2xl p-5 card">
-          <p class="text-xs font-semibold text-slate-500">Étape 1</p>
-          <h3 class="mt-1 font-semibold">Comprendre & prioriser</h3>
-          <p class="mt-2 text-sm text-slate-700">Cartographie des processus, irritants métiers, gains attendus, faisabilité data/technique et alignement stratégique.</p>
-        </li>
-        <li class="bg-white border border-slate-200 rounded-2xl p-5 card">
-          <p class="text-xs font-semibold text-slate-500">Étape 2</p>
-          <h3 class="mt-1 font-semibold">Tester sur un périmètre sécurisé</h3>
-          <p class="mt-2 text-sm text-slate-700">Prototype ou POC encadré avec indicateurs simples : temps gagné, qualité, adoption équipe, maîtrise des risques.</p>
-        </li>
-        <li class="bg-white border border-slate-200 rounded-2xl p-5 card">
-          <p class="text-xs font-semibold text-slate-500">Étape 3</p>
-          <h3 class="mt-1 font-semibold">Industrialiser ce qui marche</h3>
-          <p class="mt-2 text-sm text-slate-700">Formalisation des pratiques, gouvernance minimale, accompagnement du changement et préparation à l’échelle.</p>
-        </li>
-        <li class="bg-white border border-slate-200 rounded-2xl p-5 card">
-          <p class="text-xs font-semibold text-slate-500">Étape 4</p>
-          <h3 class="mt-1 font-semibold">Mesurer & améliorer en continu</h3>
-          <p class="mt-2 text-sm text-slate-700">Tableau de bord d’impact, retours d’expérience, montée en compétences des équipes et ajustement des priorités.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-12 sm:py-16 border-t border-slate-200/70">
-      <div class="grid lg:grid-cols-2 gap-8 items-start">
-        <div>
-          <h2 class="text-2xl font-bold">Entrer en contact</h2>
-          <p class="mt-3 text-slate-700">Décrivez votre contexte en quelques lignes : taille de l’entreprise, métier, objectifs, contraintes. Je reviens vers vous sous 24–48h.</p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="mailto:akir.oussama@gmail.com?subject=Ambassadeur%20IA%20—%20prise%20de%20contact" class="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm font-medium shadow hover:shadow-lg">📧 akir.oussama@gmail.com</a>
-            <a href="https://www.linkedin.com/in/oussamakir/" class="rounded-xl bg-white text-slate-900 px-5 py-3 text-sm font-medium border border-slate-300 shadow-sm hover:shadow">in LinkedIn</a>
+    <!-- ══════════════════════════
+         FORMATS
+    ══════════════════════════ -->
+    <section class="formats" id="formats" aria-labelledby="formats-titre">
+      <div class="container">
+        <p class="section-label reveal">Formats d'intervention</p>
+        <h2 class="section-title reveal" id="formats-titre">Adapté à chaque contexte</h2>
+        <div class="formats-grid">
+          <div class="format-card reveal">
+            <p class="format-name">Talk</p>
+            <p class="format-duration">45–60 MIN</p>
+            <p class="format-desc">Découvrir les usages utiles de l'IA, limites et retours d'expérience. Idéal pour comités de direction et séminaires.</p>
+          </div>
+          <div class="format-card reveal">
+            <p class="format-name">Atelier</p>
+            <p class="format-duration">2–3 H</p>
+            <p class="format-desc">Mise en mains guidée d'outils IA, études de cas, checklists d'adoption et de gouvernance pour vos équipes.</p>
+          </div>
+          <div class="format-card reveal">
+            <p class="format-name">Parcours</p>
+            <p class="format-duration">4 SEMAINES</p>
+            <p class="format-desc">De l'idée au pilote : cadrage, POC sécurisé, critères de succès et préparation au passage à l'échelle.</p>
+          </div>
+          <div class="format-card reveal">
+            <p class="format-name">Office Hours</p>
+            <p class="format-duration">RÉCURRENT</p>
+            <p class="format-desc">Créneau régulier pour répondre aux questions et lever les freins des équipes au fil du déploiement.</p>
           </div>
         </div>
-        <form class="bg-white border border-slate-200 rounded-2xl p-6 space-y-4" onsubmit="event.preventDefault(); alert('Merci ! Votre message a été préparé dans votre client mail.'); window.location.href=`mailto:akir.oussama@gmail.com?subject=Demande%20d%27information%20Ambassadeur%20IA&body=${encodeURIComponent(document.getElementById('msg').value)}`;">
-          <h3 class="font-semibold">Message rapide</h3>
-          <p class="text-xs text-slate-600">En envoyant ce message, vous acceptez le traitement de vos données de contact pour répondre à votre demande. <a href="donnees-personnelles.html" class="underline hover:no-underline">Consulter la politique de traitement des données personnelles</a>.</p>
-          <label class="block text-sm">
-            <span class="text-slate-700">Votre message</span>
-            <textarea id="msg" class="mt-1 w-full rounded-xl border-slate-300 focus:ring-2 focus:ring-slate-900/20" rows="5" placeholder="Bonjour, nous sommes une PME de 50 personnes dans … Nous souhaitons …"></textarea>
-          </label>
-          <button type="submit" class="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm font-medium shadow hover:shadow-lg">Envoyer</button>
-        </form>
+        <p class="formats-note reveal">PRÉSENTIEL OU À DISTANCE · FORFAIT OU RÉGIE</p>
       </div>
     </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════
+         PROGRAMME
+    ══════════════════════════ -->
+    <section class="programme" id="programme" aria-labelledby="programme-titre">
+      <div class="container">
+        <div class="programme-header">
+          <div>
+            <p class="section-label reveal">Alignement programme national</p>
+            <h2 class="section-title reveal" id="programme-titre">4 piliers Ambassadeur IA</h2>
+            <p class="section-subtitle reveal">Mon accompagnement est structuré pour répondre aux priorités portées en France : acculturer les TPE/PME, faire émerger des cas d'usage concrets et favoriser une adoption responsable.</p>
+          </div>
+          <a href="#contact" class="btn-ghost reveal" style="white-space:nowrap;">Échanger →</a>
+        </div>
+        <div class="programme-grid">
+          <div class="pillar-card reveal">
+            <span class="pillar-num" aria-hidden="true">1</span>
+            <h3>Acculturation & pédagogie</h3>
+            <p>Sensibilisation adaptée aux dirigeants et équipes : vocabulaire IA, opportunités, limites, conditions de réussite.</p>
+          </div>
+          <div class="pillar-card reveal">
+            <span class="pillar-num" aria-hidden="true">2</span>
+            <h3>Passage à l'action rapide</h3>
+            <p>Identification de cas d'usage prioritaires, quick wins 30–60 jours, critères de valeur et feuille de route pragmatique.</p>
+          </div>
+          <div class="pillar-card reveal">
+            <span class="pillar-num" aria-hidden="true">3</span>
+            <h3>Confiance, éthique & conformité</h3>
+            <p>Approche responsable : qualité des données, RGPD, sécurité, transparence sur les limites et supervision humaine.</p>
+          </div>
+          <div class="pillar-card reveal">
+            <span class="pillar-num" aria-hidden="true">4</span>
+            <h3>Orientation dans l'écosystème</h3>
+            <p>Mise en relation avec les dispositifs d'appui pertinents (France Num, acteurs territoriaux) selon la maturité de l'entreprise.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════
+         MÉTHODE
+    ══════════════════════════ -->
+    <section class="methode" id="methode" aria-labelledby="methode-titre">
+      <div class="container">
+        <div class="methode-header">
+          <p class="section-label reveal">Méthode</p>
+          <h2 class="section-title reveal" id="methode-titre">Parcours « Osez l'IA »</h2>
+          <p class="section-subtitle reveal">Un chemin progressif, concret et mesurable — de la découverte au déploiement opérationnel.</p>
+        </div>
+        <div class="steps-grid reveal">
+          <div class="step-card">
+            <div class="step-num" aria-hidden="true">1</div>
+            <h3>Comprendre & prioriser</h3>
+            <p>Cartographie des processus, irritants métiers, gains attendus, faisabilité data et alignement stratégique.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num" aria-hidden="true">2</div>
+            <h3>Tester sur périmètre sécurisé</h3>
+            <p>Prototype ou POC encadré avec indicateurs simples : temps gagné, qualité, adoption équipe.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num" aria-hidden="true">3</div>
+            <h3>Industrialiser ce qui marche</h3>
+            <p>Formalisation des pratiques, gouvernance minimale et accompagnement du changement.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num" aria-hidden="true">4</div>
+            <h3>Mesurer & améliorer</h3>
+            <p>Tableau de bord d'impact, retours d'expérience et montée en compétences continues.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════
+         CONTACT
+    ══════════════════════════ -->
+    <section class="contact" id="contact" aria-labelledby="contact-titre">
+      <div class="container">
+        <p class="section-label reveal">Contact</p>
+        <h2 class="section-title reveal" id="contact-titre">Parlons de votre projet IA</h2>
+        <div class="contact-grid">
+          <div>
+            <p class="section-subtitle reveal" style="margin-bottom:0;">
+              Décrivez votre contexte : taille de l'entreprise, secteur d'activité, objectifs et contraintes. Je reviens vers vous sous 24–48h.
+            </p>
+            <div class="contact-links">
+              <a href="mailto:akir.oussama@gmail.com" class="contact-link reveal">
+                <div class="contact-link-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="contact-link-text">
+                  <strong>akir.oussama@gmail.com</strong>
+                  <span>Réponse sous 24–48h</span>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/oussama-akir/" target="_blank" rel="noopener noreferrer" class="contact-link reveal">
+                <div class="contact-link-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </div>
+                <div class="contact-link-text">
+                  <strong>LinkedIn · Oussama Akir</strong>
+                  <span>Profil professionnel</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="contact-form-card reveal">
+            <p class="form-title">Message rapide</p>
+            <form id="contact-form" onsubmit="handleSubmit(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="c-name">Votre nom</label>
+                  <input class="form-input" type="text" id="c-name" name="name" placeholder="Prénom Nom">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-email">Email professionnel</label>
+                  <input class="form-input" type="email" id="c-email" name="email" placeholder="vous@entreprise.fr" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-msg">Votre message</label>
+                <textarea id="c-msg" class="form-textarea" placeholder="Nous sommes une PME de 50 personnes dans… Nous souhaitons…" required></textarea>
+              </div>
+              <p class="form-note">
+                En envoyant ce formulaire, vous acceptez le traitement de vos données de contact pour répondre à votre demande.
+                <a href="mentions-legales.html#donnees-personnelles">Politique de données personnelles</a>.
+              </p>
+              <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+                Envoyer le message
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-200/70 py-8">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-sm text-slate-600 flex flex-col sm:flex-row justify-between gap-3">
-      <div>
-        © <span id="year"></span> Oussama Akir — Ambassadeur IA. Tous droits réservés.
-      </div>
-      <div class="flex flex-col sm:items-end gap-2">
-        <span class="inline-block">Site indépendant, en cohérence avec le réseau Ambassadeurs IA coordonné par la DGE.</span>
-        <div class="flex gap-4">
-          <a href="mentions-legales.html" class="underline hover:no-underline">Mentions légales</a>
-          <a href="donnees-personnelles.html" class="underline hover:no-underline">Données personnelles</a>
-        </div>
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          © <span id="yr"></span> Oussama Akir — Ambassadeur IA<br>
+          Site indépendant, en cohérence avec le réseau Ambassadeurs IA coordonné par la DGE.
+        </p>
+        <nav aria-label="Liens légaux">
+          <ul class="footer-links">
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="mentions-legales.html#donnees-personnelles">Données personnelles</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+  <script>
+    // ── Nav scroll ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Scroll reveal ──
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Contact form ──
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name  = document.getElementById('c-name').value.trim();
+      const email = document.getElementById('c-email').value.trim();
+      const msg   = document.getElementById('c-msg').value.trim();
+      const subject = encodeURIComponent('Demande de contact — ' + (name || 'Site Ambassadeur IA'));
+      const body    = encodeURIComponent(
+        (name  ? 'Nom : ' + name + '\n'  : '') +
+        'Email : ' + email + '\n\n' +
+        msg
+      );
+      window.location.href = 'mailto:akir.oussama@gmail.com?subject=' + subject + '&body=' + body;
+    }
+
+    // ── Footer year ──
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

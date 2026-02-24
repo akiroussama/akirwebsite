@@ -3,42 +3,724 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mentions légales — Ambassadeur IA Oussama Akir</title>
-  <meta name="description" content="Mentions légales du site Ambassadeur IA — Oussama Akir, conformément à l'article 6 de la loi n°2004-575 du 21 juin 2004." />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Légal — Oussama Akir, Ambassadeur IA</title>
+  <meta name="description" content="Mentions légales et politique de traitement des données personnelles — Oussama Akir, Ambassadeur IA." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%233B7BFF'/%3E%3Ctext y='.9em' font-size='56' x='14' fill='white' font-family='monospace' font-weight='700'%3EIA%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Crimson+Pro:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #F7F9FF;
+      --surface:    #FFFFFF;
+      --surface-2:  #EEF2FF;
+      --border:     #DDE3F4;
+      --primary:    #2563EB;
+      --cyan:       #0EA5E9;
+      --gold:       #D97706;
+      --text:       #0F172A;
+      --text-muted: #475569;
+      --text-dim:   #94A3B8;
+      --ff-display: 'Syne', sans-serif;
+      --ff-body:    'Crimson Pro', Georgia, serif;
+      --ff-mono:    'JetBrains Mono', monospace;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+    }
+
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--ff-display);
+      font-size: .8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color .2s;
+      margin-bottom: 2.5rem;
+    }
+    .back-link:hover { color: var(--primary); }
+
+    /* ── Page header ── */
+    .page-label {
+      font-family: var(--ff-mono);
+      font-size: .6875rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: .75rem;
+    }
+
+    h1 {
+      font-family: var(--ff-display);
+      font-size: 1.875rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Tab switcher ── */
+    .legal-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .tab-btn {
+      font-family: var(--ff-display);
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--text-dim);
+      background: none;
+      border: none;
+      padding: .75rem 1.375rem;
+      cursor: pointer;
+      position: relative;
+      transition: color .2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
+    }
+
+    .tab-btn[aria-selected="true"] { color: var(--text); }
+    .tab-btn[aria-selected="true"]::after { transform: scaleX(1); }
+    .tab-btn:hover:not([aria-selected="true"]) { color: var(--text-muted); }
+
+    /* ── Tab panels ── */
+    .tab-panel { display: none; }
+    .tab-panel.active {
+      display: block;
+      animation: panelIn .22s ease;
+    }
+
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Cards ── */
+    .legal-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .legal-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary) 0%, transparent 100%);
+    }
+
+    .legal-section.gold::before {
+      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+    }
+
+    .legal-section.cyan::before {
+      background: linear-gradient(90deg, var(--cyan) 0%, transparent 100%);
+    }
+
+    h2 {
+      font-family: var(--ff-display);
+      font-size: .9375rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .legal-section.gold h2 { color: var(--gold); }
+    .legal-section.cyan h2 { color: var(--cyan); }
+
+    /* ── Info rows (mentions légales) ── */
+    .info-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: .25rem 1rem;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .9375rem;
+    }
+    .info-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .info-label {
+      font-family: var(--ff-display);
+      font-size: .75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--text-dim);
+      padding-top: .05rem;
+    }
+
+    .info-value { color: var(--text-muted); }
+    .info-value a { color: var(--primary); text-decoration: none; }
+    .info-value a:hover { text-decoration: underline; }
+
+    /* ── Paragraphs ── */
+    p {
+      color: var(--text-muted);
+      font-size: .9375rem;
+      line-height: 1.7;
+      margin-top: .625rem;
+    }
+    p:first-of-type { margin-top: 0; }
+
+    /* ── Lists (données personnelles) ── */
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .625rem;
+      margin-top: .25rem;
+    }
+
+    ul li {
+      display: flex;
+      gap: .75rem;
+      align-items: flex-start;
+      font-size: .9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    ul li::before {
+      content: '→';
+      color: var(--primary);
+      font-family: var(--ff-mono);
+      font-size: .875rem;
+      flex-shrink: 0;
+      margin-top: .05rem;
+    }
+
+    /* ── Data table ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: .5rem;
+      font-size: .875rem;
+    }
+
+    .data-table th {
+      font-family: var(--ff-display);
+      font-size: .6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--text-dim);
+      text-align: left;
+      padding: .5rem .75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table td {
+      padding: .625rem .75rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* ── Rights grid ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .875rem;
+      margin-top: .25rem;
+    }
+
+    .right-item {
+      background: rgba(37,99,235,.05);
+      border: 1px solid rgba(37,99,235,.12);
+      border-radius: 8px;
+      padding: .875rem 1rem;
+    }
+
+    .right-title {
+      font-family: var(--ff-display);
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--primary);
+      margin-bottom: .375rem;
+    }
+
+    .right-desc {
+      font-size: .875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ── CNIL block ── */
+    .cnil-block {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      background: rgba(217,119,6,.06);
+      border: 1px solid rgba(217,119,6,.18);
+      border-radius: 8px;
+      font-size: .875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .cnil-block a { color: var(--gold); text-decoration: none; }
+    .cnil-block a:hover { text-decoration: underline; }
+
+    /* ── LCEN ref ── */
+    .lcen-ref {
+      margin-top: 2.5rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(37,99,235,.05);
+      border: 1px solid rgba(37,99,235,.15);
+      border-radius: 10px;
+      font-family: var(--ff-mono);
+      font-size: .75rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .lcen-ref a { color: var(--primary); text-decoration: none; }
+    .lcen-ref a:hover { text-decoration: underline; }
+
+    /* ── Contact CTA ── */
+    .contact-cta {
+      margin-top: 2.5rem;
+      background: rgba(37,99,235,.06);
+      border: 1px solid rgba(37,99,235,.18);
+      border-radius: 14px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-cta-text {
+      font-family: var(--ff-display);
+      font-size: .9375rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .contact-cta-sub {
+      font-size: .875rem;
+      color: var(--text-muted);
+      margin-top: .25rem;
+      font-family: var(--ff-body);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--ff-display);
+      font-size: .8125rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: .75rem 1.5rem;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity .2s, transform .2s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { opacity: .85; transform: translateY(-1px); }
+
+    /* ── RGPD badge ── */
+    .rgpd-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--ff-mono);
+      font-size: .6875rem;
+      color: var(--cyan);
+      border: 1px solid rgba(14,165,233,.25);
+      padding: .375rem .875rem;
+      border-radius: 99px;
+      background: rgba(14,165,233,.06);
+      letter-spacing: .07em;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: .8125rem;
+      color: var(--text-dim);
+    }
+    footer a { color: var(--text-dim); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    footer nav { display: flex; gap: 1.25rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .info-row { grid-template-columns: 1fr; gap: .1rem; }
+      .info-label { font-size: .6875rem; }
+      .rights-grid { grid-template-columns: 1fr; }
+      .contact-cta { flex-direction: column; align-items: flex-start; }
+      h1 { font-size: 1.5rem; }
+      .tab-btn { padding: .75rem .875rem; font-size: .75rem; }
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased">
-  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
-    <a href="index.html" class="text-sm underline hover:no-underline">← Retour à l'accueil</a>
-    <h1 class="mt-4 text-3xl font-bold">Mentions légales</h1>
-    <p class="mt-3 text-slate-700">Conformément à l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), les informations ci-dessous précisent l'identité des intervenants du site.</p>
+<body>
+  <div class="page-wrap">
 
-    <section class="mt-8 bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
-      <h2 class="text-xl font-semibold">Éditeur du site</h2>
-      <p><strong>Nom / raison sociale :</strong> Oussama Akir</p>
-      <p><strong>Statut :</strong> Ambassadeur IA (activité indépendante)</p>
-      <p><strong>Adresse :</strong> <span class="text-slate-600">Domont, 95330, FRANCE</span></p>
-      <p><strong>E-mail :</strong> akir.oussama@gmail.com</p>
-      <p><strong>Téléphone :</strong> <span class="text-slate-600">0626114949</span></p>
-      <p><strong>SIREN / SIRET :</strong> <span class="text-slate-600">845009125</span></p>
-      <p><strong>Numéro de TVA intracommunautaire :</strong> <span class="text-slate-600">NA</span></p>
-      <p><strong>Directeur de la publication :</strong> Oussama Akir</p>
-    </section>
+    <a href="index.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Retour à l'accueil
+    </a>
 
-    <section class="mt-6 bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
-      <h2 class="text-xl font-semibold">Propriété intellectuelle</h2>
-      <p>L'ensemble des éléments présents sur ce site (textes, visuels, logos, structure, code) est protégé par le droit d'auteur. Toute reproduction ou représentation, totale ou partielle, sans autorisation préalable est interdite.</p>
-    </section>
+    <p class="page-label">Légal</p>
+    <h1>Informations légales</h1>
 
-    <section class="mt-6 bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
-      <h2 class="text-xl font-semibold">Responsabilité</h2>
-      <p>Les informations diffusées sur ce site sont fournies à titre indicatif et peuvent évoluer. Malgré le soin apporté à leur exactitude, l'éditeur ne peut garantir l'absence d'erreurs ou d'omissions.</p>
-    </section>
+    <!-- ── Tab navigation ── -->
+    <nav class="legal-tabs" role="tablist" aria-label="Sections légales">
+      <button class="tab-btn" role="tab" id="tab-mentions" aria-selected="true" aria-controls="panel-mentions" data-tab="mentions-legales">
+        Mentions légales
+      </button>
+      <button class="tab-btn" role="tab" id="tab-donnees" aria-selected="false" aria-controls="panel-donnees" data-tab="donnees-personnelles">
+        Données personnelles
+      </button>
+    </nav>
 
-    <section class="mt-6 bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
-      <h2 class="text-xl font-semibold">Données personnelles</h2>
-      <p>Pour toute information sur la collecte et le traitement des données personnelles, consultez la page dédiée : <a href="donnees-personnelles.html" class="underline hover:no-underline">Traitement des données personnelles</a>.</p>
-    </section>
-  </main>
+    <!-- ══════════════════════════════════════════
+         PANEL 1 — Mentions légales
+    ══════════════════════════════════════════ -->
+    <div id="panel-mentions" class="tab-panel" role="tabpanel" aria-labelledby="tab-mentions">
+
+      <!-- Éditeur -->
+      <section class="legal-section" aria-labelledby="editeur-titre">
+        <h2 id="editeur-titre">Éditeur du site</h2>
+
+        <div class="info-row">
+          <span class="info-label">Nom / Prénom</span>
+          <span class="info-value">Oussama Akir</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Statut juridique</span>
+          <span class="info-value">Micro-entrepreneur (auto-entrepreneur)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Activité</span>
+          <span class="info-value">Conseil en systèmes et logiciels informatiques — Ambassadeur IA (réseau coordonné par la DGE / France Num)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Adresse</span>
+          <span class="info-value">Domont, 95330, France</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Téléphone</span>
+          <span class="info-value">06 26 11 49 49</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">E-mail</span>
+          <span class="info-value"><a href="mailto:akir.oussama@gmail.com">akir.oussama@gmail.com</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">SIREN</span>
+          <span class="info-value">845 009 125</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">TVA</span>
+          <span class="info-value">Non assujetti à la TVA (article 293 B du CGI — régime micro-entrepreneur)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Directeur de la publication</span>
+          <span class="info-value">Oussama Akir</span>
+        </div>
+      </section>
+
+      <!-- Hébergeur -->
+      <section class="legal-section gold" aria-labelledby="hebergeur-titre">
+        <h2 id="hebergeur-titre">Hébergeur du site</h2>
+
+        <div class="info-row">
+          <span class="info-label">Raison sociale</span>
+          <span class="info-value">GitHub, Inc.</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Service</span>
+          <span class="info-value">GitHub Pages (hébergement de sites statiques)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Adresse</span>
+          <span class="info-value">88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Site web</span>
+          <span class="info-value"><a href="https://github.com" target="_blank" rel="noopener noreferrer">https://github.com</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Conditions d'utilisation</span>
+          <span class="info-value"><a href="https://docs.github.com/fr/site-policy/github-terms/github-terms-of-service" target="_blank" rel="noopener noreferrer">Conditions GitHub (docs.github.com)</a></span>
+        </div>
+      </section>
+
+      <!-- Propriété intellectuelle -->
+      <section class="legal-section" aria-labelledby="pi-titre">
+        <h2 id="pi-titre">Propriété intellectuelle</h2>
+        <p>L'ensemble des éléments présents sur ce site (textes, visuels, logos, structure, code) est protégé par le droit d'auteur. Toute reproduction ou représentation, totale ou partielle, sans autorisation préalable et écrite de l'éditeur est interdite et constituerait une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
+      </section>
+
+      <!-- Responsabilité -->
+      <section class="legal-section" aria-labelledby="resp-titre">
+        <h2 id="resp-titre">Responsabilité</h2>
+        <p>Les informations diffusées sur ce site sont fournies à titre indicatif et peuvent évoluer sans préavis. L'éditeur s'efforce d'assurer l'exactitude et la mise à jour des informations mais ne peut garantir l'absence d'erreurs, d'inexactitudes ou d'omissions.</p>
+        <p>L'éditeur ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation des informations contenues sur ce site.</p>
+      </section>
+
+      <!-- Données personnelles (lien vers onglet) -->
+      <section class="legal-section" aria-labelledby="dp-titre">
+        <h2 id="dp-titre">Données personnelles</h2>
+        <p>Ce site collecte des données personnelles dans le cadre de son formulaire de contact. Pour toute information sur la collecte et le traitement de vos données, consultez l'onglet dédié :</p>
+        <p style="margin-top: .875rem;">
+          <button onclick="switchTab('donnees-personnelles')" style="background:none;border:none;cursor:pointer;color:var(--primary);font-family:var(--ff-display);font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:0;">
+            → Politique de traitement des données personnelles
+          </button>
+        </p>
+      </section>
+
+      <!-- Cookies -->
+      <section class="legal-section" aria-labelledby="cookies-titre">
+        <h2 id="cookies-titre">Cookies</h2>
+        <p>Ce site n'utilise pas de cookies de traçage ou d'analyse. Aucun cookie tiers n'est déposé sur votre navigateur lors de la navigation.</p>
+      </section>
+
+      <div class="lcen-ref">
+        Référence légale : <strong>Article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN)</strong><br>
+        Guide FranceNum : <a href="https://www.francenum.gouv.fr/guides-et-conseils/developpement-commercial/site-web/quelles-sont-les-mentions-legales-pour-un-site" target="_blank" rel="noopener noreferrer">Quelles sont les mentions légales pour un site internet ?</a>
+      </div>
+
+    </div><!-- /panel-mentions -->
+
+    <!-- ══════════════════════════════════════════
+         PANEL 2 — Données personnelles
+    ══════════════════════════════════════════ -->
+    <div id="panel-donnees" class="tab-panel" role="tabpanel" aria-labelledby="tab-donnees">
+
+      <div class="rgpd-badge">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        RGPD — Conformité CNIL
+      </div>
+
+      <!-- Responsable -->
+      <section class="legal-section" aria-labelledby="rt-titre">
+        <h2 id="rt-titre">Responsable du traitement</h2>
+        <p><strong style="color:var(--text);">Oussama Akir</strong> — Micro-entrepreneur, Ambassadeur IA (réseau DGE / France Num)</p>
+        <p>E-mail : <a href="mailto:akir.oussama@gmail.com" style="color:var(--primary);">akir.oussama@gmail.com</a></p>
+        <p>Adresse : Domont, 95330, France</p>
+      </section>
+
+      <!-- Données collectées -->
+      <section class="legal-section" aria-labelledby="dc-titre">
+        <h2 id="dc-titre">Données collectées</h2>
+        <p>Dans le cadre du formulaire de contact, les données suivantes peuvent être collectées :</p>
+        <table class="data-table" role="table">
+          <thead>
+            <tr>
+              <th scope="col">Donnée</th>
+              <th scope="col">Caractère</th>
+              <th scope="col">Finalité</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nom et prénom</td>
+              <td>Facultatif</td>
+              <td>Personnaliser la réponse</td>
+            </tr>
+            <tr>
+              <td>Adresse e-mail</td>
+              <td>Obligatoire</td>
+              <td>Répondre à la demande</td>
+            </tr>
+            <tr>
+              <td>Contenu du message</td>
+              <td>Obligatoire</td>
+              <td>Traiter la demande d'information ou d'accompagnement</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Aucune autre donnée n'est collectée automatiquement (pas de cookie de traçage, pas d'analytics tiers).</p>
+      </section>
+
+      <!-- Finalités -->
+      <section class="legal-section" aria-labelledby="fin-titre">
+        <h2 id="fin-titre">Finalités du traitement</h2>
+        <ul>
+          <li>Répondre aux demandes d'information reçues via le formulaire ou par e-mail.</li>
+          <li>Échanger sur un besoin d'accompagnement à l'adoption de l'IA.</li>
+          <li>Assurer le suivi de la relation professionnelle issue de la demande initiale.</li>
+        </ul>
+        <p>Les données ne sont pas utilisées à des fins de prospection commerciale non sollicitée.</p>
+      </section>
+
+      <!-- Base légale -->
+      <section class="legal-section" aria-labelledby="bl-titre">
+        <h2 id="bl-titre">Base légale</h2>
+        <ul>
+          <li><strong style="color:var(--text);">Exécution de mesures précontractuelles</strong> — lorsque la demande vise à établir une relation professionnelle (Art. 6.1.b RGPD).</li>
+          <li><strong style="color:var(--text);">Intérêt légitime</strong> — pour la gestion et le suivi des demandes entrantes (Art. 6.1.f RGPD).</li>
+        </ul>
+      </section>
+
+      <!-- Durée -->
+      <section class="legal-section" aria-labelledby="dur-titre">
+        <h2 id="dur-titre">Durée de conservation</h2>
+        <p>Les données sont conservées pendant une durée maximale de <strong style="color:var(--text);">3 ans</strong> à compter de la date du dernier contact, sauf obligation légale contraire ou demande de suppression de votre part.</p>
+        <p>Passé ce délai, les données sont supprimées ou anonymisées.</p>
+      </section>
+
+      <!-- Destinataires -->
+      <section class="legal-section" aria-labelledby="dest-titre">
+        <h2 id="dest-titre">Destinataires des données</h2>
+        <p>Les données collectées sont destinées <strong style="color:var(--text);">exclusivement à Oussama Akir</strong> dans le cadre de sa mission d'Ambassadeur IA. Elles ne sont pas vendues, louées ni cédées à des tiers.</p>
+        <p>Aucun sous-traitant externe n'a accès à vos données personnelles dans le cadre de ce site.</p>
+      </section>
+
+      <!-- Vos droits -->
+      <section class="legal-section cyan" aria-labelledby="droits-titre">
+        <h2 id="droits-titre">Vos droits</h2>
+        <p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants sur vos données :</p>
+
+        <div class="rights-grid">
+          <div class="right-item">
+            <p class="right-title">Droit d'accès</p>
+            <p class="right-desc">Obtenir une copie des données vous concernant.</p>
+          </div>
+          <div class="right-item">
+            <p class="right-title">Droit de rectification</p>
+            <p class="right-desc">Faire corriger des données inexactes ou incomplètes.</p>
+          </div>
+          <div class="right-item">
+            <p class="right-title">Droit à l'effacement</p>
+            <p class="right-desc">Demander la suppression de vos données.</p>
+          </div>
+          <div class="right-item">
+            <p class="right-title">Droit d'opposition</p>
+            <p class="right-desc">S'opposer au traitement fondé sur l'intérêt légitime.</p>
+          </div>
+          <div class="right-item">
+            <p class="right-title">Droit à la limitation</p>
+            <p class="right-desc">Restreindre temporairement le traitement de vos données.</p>
+          </div>
+          <div class="right-item">
+            <p class="right-title">Droit à la portabilité</p>
+            <p class="right-desc">Recevoir vos données dans un format structuré.</p>
+          </div>
+        </div>
+
+        <div class="cnil-block">
+          <strong>Réclamation auprès de la CNIL</strong> — Si vous estimez que le traitement de vos données ne respecte pas la réglementation, vous pouvez introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés :<br>
+          <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener noreferrer">https://www.cnil.fr/fr/plaintes</a>
+        </div>
+      </section>
+
+      <!-- Exercer ses droits -->
+      <div class="contact-cta">
+        <div>
+          <p class="contact-cta-text">Exercer vos droits</p>
+          <p class="contact-cta-sub">Envoyez votre demande par e-mail en précisant votre identité et la nature du droit que vous souhaitez exercer. Réponse sous 30 jours.</p>
+        </div>
+        <a href="mailto:akir.oussama@gmail.com?subject=Demande%20RGPD%20—%20droits%20données%20personnelles" class="btn-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contacter par e-mail
+        </a>
+      </div>
+
+    </div><!-- /panel-donnees -->
+
+    <footer>
+      <p>© <span id="yr"></span> Oussama Akir — Ambassadeur IA</p>
+      <nav aria-label="Liens du site">
+        <a href="index.html">Accueil</a>
+      </nav>
+    </footer>
+
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      const tabs   = document.querySelectorAll('.tab-btn');
+      const panels = document.querySelectorAll('.tab-panel');
+
+      tabs.forEach(t => {
+        const isActive = t.dataset.tab === tabId;
+        t.setAttribute('aria-selected', isActive);
+      });
+
+      panels.forEach(p => {
+        if (p.id === 'panel-' + (tabId === 'mentions-legales' ? 'mentions' : 'donnees')) {
+          p.classList.add('active');
+        } else {
+          p.classList.remove('active');
+        }
+      });
+
+      history.replaceState(null, '', '#' + tabId);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Wire up tab buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
+
+    // Init from URL hash
+    const hash = location.hash.replace('#', '');
+    const valid = ['mentions-legales', 'donnees-personnelles'];
+    switchTab(valid.includes(hash) ? hash : 'mentions-legales');
+
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
