@@ -41,6 +41,7 @@
         <a href="#parcours" class="hover:text-slate-700">Parcours</a>
         <a href="#formats" class="hover:text-slate-700">Formats</a>
         <a href="#contact" class="hover:text-slate-700">Contact</a>
+        <a href="mentions-legales.html" class="hover:text-slate-700">Mentions légales</a>
       </nav>
       <a href="#contact" class="md:inline-block hidden rounded-xl bg-slate-900 text-white px-4 py-2 text-sm font-medium shadow hover:shadow-md">Prendre contact</a>
     </div>
@@ -248,6 +249,7 @@
         </div>
         <form class="bg-white border border-slate-200 rounded-2xl p-6 space-y-4" onsubmit="event.preventDefault(); alert('Merci ! Votre message a été préparé dans votre client mail.'); window.location.href=`mailto:contact@votredomaine.fr?subject=Demande%20d%27information%20Ambassadeur%20IA&body=${encodeURIComponent(document.getElementById('msg').value)}`;">
           <h3 class="font-semibold">Message rapide</h3>
+          <p class="text-xs text-slate-600">En envoyant ce message, vous acceptez le traitement de vos données de contact pour répondre à votre demande. <a href="donnees-personnelles.html" class="underline hover:no-underline">Consulter la politique de traitement des données personnelles</a>.</p>
           <label class="block text-sm">
             <span class="text-slate-700">Votre message</span>
             <textarea id="msg" class="mt-1 w-full rounded-xl border-slate-300 focus:ring-2 focus:ring-slate-900/20" rows="5" placeholder="Bonjour, nous sommes une PME de 50 personnes dans … Nous souhaitons …"></textarea>
@@ -264,8 +266,12 @@
       <div>
         © <span id="year"></span> Oussama Akir — Ambassadeur IA. Tous droits réservés.
       </div>
-      <div>
+      <div class="flex flex-col sm:items-end gap-2">
         <span class="inline-block">Site indépendant, en cohérence avec le réseau Ambassadeurs IA coordonné par la DGE.</span>
+        <div class="flex gap-4">
+          <a href="mentions-legales.html" class="underline hover:no-underline">Mentions légales</a>
+          <a href="donnees-personnelles.html" class="underline hover:no-underline">Données personnelles</a>
+        </div>
       </div>
     </div>
   </footer>
